@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AkkaStudy/AkkaStudy.iml" filepath="$PROJECT_DIR$/AkkaStudy/AkkaStudy.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyStudyProject.iml" filepath="$PROJECT_DIR$/MyStudyProject.iml" />
     </modules>
   </component>
