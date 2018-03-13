@@ -29,47 +29,59 @@
     </mvc:interceptors>
 
     <!--视图解析器-->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/pages/jsp/"/>
-        <property name="suffix" value=".jsp"/><!--可为空,方便实现自已的依据扩展名来选择视图解释类的逻辑  -->
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
-    </bean>
+    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+        <!--<property name="prefix" value="/WEB-INF/pages/jsp/"/>-->
+        <!--<property name="suffix" value=".jsp"/>&lt;!&ndash;可为空,方便实现自已的依据扩展名来选择视图解释类的逻辑  &ndash;&gt;-->
+        <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />-->
+    <!--</bean>-->
 
     <!-- 多视图处理器 -->
-    <!--<bean class="com.xlbs.springmvc.spring.MixedViewResolver">-->
-    <!--<property name="resolvers">-->
-    <!--<map>-->
-    <!--<entry key="jsp">-->
-    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
-    <!--<property name="prefix" value="/WEB-INF/pages/jsp/"/>-->
-    <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>-->
-    <!--</bean>-->
-    <!--</entry>-->
-    <!--<entry key="ftl">-->
-    <!--<bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">-->
-    <!--<property name="cache" value="true"/>-->
-    <!--<property name="contentType" value="text/html;charset=UTF-8"></property>-->
-    <!--&lt;!&ndash; 宏命令的支持  &ndash;&gt;-->
-    <!--<property name="exposeSpringMacroHelpers" value="true"/>-->
-    <!--<property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>-->
-    <!--<property name="requestContextAttribute" value="rc"></property>-->
-    <!--</bean>-->
-    <!--</entry>-->
-    <!--</map>-->
-    <!--</property>-->
-    <!--</bean>-->
+    <bean class="com.xlbs.springmvc.spring.ManyViewResolver">
+        <property name="resolvers">
+            <map>
+                <entry key="jsp">
+                    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+                        <property name="prefix" value="/WEB-INF/pages/jsp/"/>
+                        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
+                    </bean>
+                </entry>
+                <entry key="ftl">
+                    <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+                        <!--<property name="prefix" value="/WEB-INF/pages/ftl/"/>-->
+                        <!--<property name="cache" value="true"/>-->
+                        <property name="contentType" value="text/html;charset=UTF-8"></property>
+                        <!-- 宏命令的支持  -->
+                        <!--<property name="exposeSpringMacroHelpers" value="true"/>-->
+                        <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
+                        <!--<property name="requestContextAttribute" value="rc"></property>-->
+                    </bean>
+                </entry>
+                <entry key="html">
+                    <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+                        <!--<property name="prefix" value="/WEB-INF/pages/html/"/>-->
+                        <!--<property name="cache" value="true"/>-->
+                        <property name="contentType" value="text/html;charset=UTF-8"></property>
+                        <!-- 宏命令的支持  -->
+                        <!--<property name="exposeSpringMacroHelpers" value="true"/>-->
+                        <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
+                        <!--<property name="requestContextAttribute" value="rc"></property>-->
+                    </bean>
+                </entry>
+            </map>
+        </property>
+    </bean>
 
-    <!-- freemarker config -->
-    <!--<bean id="freeMarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">-->
-    <!--<property name="templateLoaderPath" value="/WEB-INF/pages/ftl/" />-->
-    <!--<property name="freemarkerSettings">-->
-    <!--<props>-->
-    <!--<prop key="template_update_delay">5</prop>-->
-    <!--<prop key="default_encoding">UTF-8</prop>-->
-    <!--<prop key="locale">zh_CN</prop>-->
-    <!--</props>-->
-    <!--</property>-->
-    <!--</bean>-->
+    <!-- freemarker 配置 -->
+    <bean id="freemarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/WEB-INF/pages/view/" />
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="template_update_delay">5</prop>
+                <prop key="default_encoding">UTF-8</prop>
+                <prop key="locale">zh_CN</prop>
+            </props>
+        </property>
+    </bean>
 
     <!-- 日志拦截器-->
     <!--<bean id="logNDCInteceptor" class="com.xxx.core.web.LogNDCInteceptor"/>-->
@@ -118,15 +130,14 @@
 
     <!-- 总错误处理-->
     <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-
-        <property name="exceptionMappings">
-            <props>
-                <!-- 上传文件大于最大尺寸后转向出错页面 -->
-                <prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">
-                    redirect:/uploadError.jsp
-                </prop>
-            </props>
-        </property>
+        <!--<property name="exceptionMappings">-->
+            <!--<props>-->
+                <!--&lt;!&ndash; 上传文件大于最大尺寸后转向出错页面 &ndash;&gt;-->
+                <!--<prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">-->
+                    <!--redirect:/uploadError.jsp-->
+                <!--</prop>-->
+            <!--</props>-->
+        <!--</property>-->
         <property name="defaultErrorView">
             <value>/WEB-INF/pages/error.jsp</value>
         </property>
@@ -136,7 +147,6 @@
         <property name="warnLogCategory">
             <value>org.springframework.web.servlet.handler.SimpleMappingExceptionResolver</value>
         </property>
-
     </bean>
 
     <!--&lt;!&ndash; 允许对静态资源文件的访问 &ndash;&gt; -->

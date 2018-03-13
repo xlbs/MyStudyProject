@@ -8,9 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>jsp测试页面</title>
   </head>
   <body>
-  $END$dddddddddddddddddd
+    jsp
   </body>
 </html>
