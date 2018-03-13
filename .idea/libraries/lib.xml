@@ -4,6 +4,7 @@
       <root url="jar://$PROJECT_DIR$/SpringMVC/lib/gson-2.5.jar!/" />
       <root url="jar://$PROJECT_DIR$/SpringMVC/lib/jstl-api-1.2.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/SpringMVC/lib/servlet-api.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SpringMVC/lib/freemarker.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
