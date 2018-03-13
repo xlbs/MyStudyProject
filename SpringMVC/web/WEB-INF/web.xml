@@ -30,7 +30,7 @@
         <url-pattern>/</url-pattern><!--拦截所有请求，包括静态文件jsp、js、css-->
     </servlet-mapping>
 
-    <!--编码处理，防止POST提交乱码-->
+    <!--编码处理，解决POST乱码问题-->
     <filter>
         <filter-name>encodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

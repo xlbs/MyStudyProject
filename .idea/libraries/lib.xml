@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/SpringMVC/lib/gson-2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SpringMVC/lib/jstl-api-1.2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SpringMVC/lib/servlet-api.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
