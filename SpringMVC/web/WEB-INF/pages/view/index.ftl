@@ -9,6 +9,6 @@
 		<meta http-equiv="description" content="This is my page">
 	</head>
 	<body>
-		ftl
+		<div>ftl页面</div>
 	</body>
 </html>

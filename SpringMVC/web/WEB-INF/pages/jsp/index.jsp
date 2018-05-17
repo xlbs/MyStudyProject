@@ -19,6 +19,7 @@
     <title>jsp测试页面</title>
   </head>
   <body>
-    <img src="cccc/img/testimg.jpg">
+    <div>jsp页面</div>
+    <img src="resources/img/testimg.jpg">
   </body>
 </html>

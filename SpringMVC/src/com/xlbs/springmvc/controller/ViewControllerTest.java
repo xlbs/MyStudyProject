@@ -8,13 +8,18 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author xielbs
+ * @create 2018-05-17 17:12
+ * @desc 视图请求控制层
+ **/
 @Controller
 @RequestMapping(value = "/viewTest")
 public class ViewControllerTest {
 
     public static void main(String[] args) {
         StringBuffer sb = new StringBuffer();
-        sb.append("SELECT * FROM `bs_user`");
+        sb.append("SELECT * FROM s_user ");
         List<Map> list = DAOFactory.getInstance().getQueryInterface().querySqlReturnListMap(sb.toString());
         System.out.print(list.toString());
     }
@@ -22,10 +27,10 @@ public class ViewControllerTest {
     @RequestMapping(value = "/ftlTest")
     public ModelAndView ftlView(){
         ModelAndView mav = new ModelAndView();
-        StringBuffer sb = new StringBuffer();
-        sb.append("SELECT * FROM `bs_user`");
-        List<Map> list = DAOFactory.getInstance().getQueryInterface().querySqlReturnListMap(sb.toString());
-        System.out.print(list.toString());
+//        StringBuffer sb = new StringBuffer();
+//        sb.append("SELECT * FROM s_user ");
+//        List<Map> list = DAOFactory.getInstance().getQueryInterface().querySqlReturnListMap(sb.toString());
+//        System.out.print(list.toString());
         mav.setViewName("index.ftl");
         return mav;
     }
@@ -43,5 +48,13 @@ public class ViewControllerTest {
         mav.setViewName("index.html");
         return mav;
     }
+
+    @RequestMapping(value = "/echartsTest")
+    public ModelAndView echartsTest(){
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("echarts/echarts.jsp");
+        return mav;
+    }
+
 
 }
